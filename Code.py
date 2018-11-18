@@ -49,3 +49,14 @@ class Calc():
         self.op_pending = False
         self.display(self.total)
 
+
+    def operation(self, op): 
+        self.current = float(self.current)
+        if self.op_pending:
+            self.do_sum()
+        elif not self.eq:
+            self.total = self.current
+        self.new_num = True
+        self.op_pending = True
+        self.op = op
+        self.eq = False
