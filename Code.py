@@ -23,3 +23,15 @@ class Calc():
             self.current = temp + temp2
         self.display(self.current)
 
+
+    def calc_total(self):
+        self.eq = True
+        self.current = float(self.current)
+        if self.op_pending == True:
+            self.do_sum()
+        else:
+            self.total = float(text_box.get())
+
+    def display(self, value):
+        text_box.delete(0, END)
+        text_box.insert(0, value)
