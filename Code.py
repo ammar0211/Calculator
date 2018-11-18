@@ -60,3 +60,18 @@ class Calc():
         self.op_pending = True
         self.op = op
         self.eq = False
+
+    def cancel(self):
+        self.eq = False
+        self.current = "0"
+        self.display(0)
+        self.new_num = True
+
+    def all_cancel(self):
+        self.cancel()
+        self.total = 0
+
+    def sign(self):
+        self.eq = False
+        self.current = -(float(text_box.get()))
+        self.display(self.current)
