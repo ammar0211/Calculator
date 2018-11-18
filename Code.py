@@ -35,3 +35,17 @@ class Calc():
     def display(self, value):
         text_box.delete(0, END)
         text_box.insert(0, value)
+
+    def do_sum(self):
+        if self.op == "add":
+            self.total += self.current
+        if self.op == "minus":
+            self.total -= self.current
+        if self.op == "times":
+            self.total *= self.current
+        if self.op == "divide":
+            self.total /= self.current
+        self.new_num = True
+        self.op_pending = False
+        self.display(self.total)
+
