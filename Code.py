@@ -75,3 +75,14 @@ class Calc():
         self.eq = False
         self.current = -(float(text_box.get()))
         self.display(self.current)
+
+sum1 = Calc()
+root = Tk()
+calc = Frame(root)
+calc.grid()
+
+
+root.title("Calculator")
+text_box = Entry(calc, justify=RIGHT)
+text_box.grid(row = 0, column = 0, columnspan = 1000 ,pady = 10)
+text_box.insert(0, "0.0")
