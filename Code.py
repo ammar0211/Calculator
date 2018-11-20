@@ -86,3 +86,56 @@ root.title("Calculator")
 text_box = Entry(calc, justify=RIGHT)
 text_box.grid(row = 0, column = 0, columnspan = 1000 ,pady = 10)
 text_box.insert(0, "0.0")
+numbers = "789456123"
+i = 0
+bttn = []
+for j in range(1,4):
+    for k in range(3):
+        bttn.append(Button(calc, text = numbers[i],height=3,width=8, font=20))
+        bttn[i].grid(row = j, column = k, pady = 10, padx = 10)
+        bttn[i]["command"] = lambda x = numbers[i]: sum1.num_press(x)
+        i += 1
+
+bttn_0 = Button(calc, text = "0",height=3,width=8, font=20)
+bttn_0["command"] = lambda: sum1.num_press(0)
+bttn_0.grid(row = 4, column = 1, pady = 5)
+
+bttn_div = Button(calc, text = chr(247),height=3,width=8, font=20)
+bttn_div["command"] = lambda: sum1.operation("divide")
+bttn_div.grid(row = 1, column = 3, pady = 5)
+
+bttn_mult = Button(calc, text = "x",height=3,width=8, font=20)
+bttn_mult["command"] = lambda: sum1.operation("times")
+bttn_mult.grid(row = 2, column = 3, pady = 5)
+
+minus = Button(calc, text = "-",height=3,width=8, font=20)
+minus["command"] = lambda: sum1.operation("minus")
+minus.grid(row = 3, column = 3, pady = 5)
+
+point = Button(calc, text = ".",height=3,width=8, font=20)
+point["command"] = lambda: sum1.num_press(".")
+point.grid(row = 4, column = 0, pady = 5)
+
+add = Button(calc, text = "+",height=8,width=8, font=25)
+add["command"] = lambda: sum1.operation("add")
+add.grid(row = 4, column = 3,rowspan=2, pady = 5, padx=20)
+
+neg= Button(calc, text = "+/-",height=3,width=8, font=20)
+neg["command"] = sum1.sign
+neg.grid(row = 4, column = 2, pady = 5)
+
+clear = Button(calc, text = "C",height=3,width=8, font=20)
+clear["command"] = sum1.cancel
+
+clear.grid(row = 5, column = 0, pady = 5)
+
+all_clear = Button(calc, text = "AC",height=3,width=8, font=20)
+all_clear["command"] = sum1.all_cancel
+all_clear.grid(row = 5, column = 1, pady = 5)
+
+equals = Button(calc, text = "=",height=3,width=8, font=20)
+equals["command"] = sum1.calc_total
+equals.grid(row = 5, column = 2, pady = 20)
+
+root.mainloop()
+
